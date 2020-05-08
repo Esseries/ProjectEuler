@@ -1,0 +1,67 @@
+import time
+start_time = time.time()
+
+year_current = 1901
+month_in_year = 1
+day_in_week = 1
+day_in_month = 1
+
+year_passed = 0
+month_passed = 0
+day_passed = 1
+
+sundays = 0
+
+#starting loop till year 2001
+while year_current < 2001:
+
+    #adding days till 7 to find sunday and keep track of total days
+    if day_current == 7:
+        sundays += 1
+        day_passed += 1
+        day_current = 1
+    else:
+        day_passed += 1
+        day_current += 1
+
+    #for every leap year
+    if year_current % 4 == 0:
+
+
+    # for every february
+    if month_current == 2:
+        month_passed += 1
+        month_current += 1
+
+    #for even months
+    if day_passed % 30 == 0 and month_current % 2 == 0:
+        month_passed += 1
+        month_current += 1
+
+    # for even months
+    if day_passed % 31 == 0 and month_current % 2 != 0:
+        month_passed += 1
+        month_current += 1
+
+
+
+    if month_current == 12:
+        year_current += 1
+        year_passed += 1
+        month_current = 1
+
+
+
+
+print("year_passed:", year_passed)
+print("year_current:", year_current)
+
+print("\nmonth_passed:", month_passed)
+print("month_current:", month_current)
+
+print("\nday_passed:", day_passed)
+print("day_current:", day_current)
+
+print("\nsundays:", sundays)
+
+print("\n", time.time() - start_time," seconds")
